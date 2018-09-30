@@ -2,6 +2,7 @@ package io.github.leegive.controller;
 
 import io.github.leegive.dto.User;
 import io.github.leegive.dto.UserQueryCondition;
+import io.github.leegive.exception.UserNotExistException;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +24,9 @@ public class UserController {
 
     @GetMapping
     public List<User> query(UserQueryCondition condition, Pageable pageable) {
+
+//        throw new UserNotExistException("2");
+
         System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
 
         System.out.println(pageable.getPageSize());
